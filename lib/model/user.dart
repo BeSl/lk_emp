@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/cupertino.dart';
 
 class User {
@@ -11,8 +9,9 @@ class User {
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
-      userId: json['id'],
       name: json['Name'],
+      userId: json['id'],
+
       //levelJob: json['level'],
     );
   }

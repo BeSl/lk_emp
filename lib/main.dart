@@ -9,8 +9,13 @@ import 'dart:async';
 import 'dart:convert';
 
 Future<User> getUser() async {
-  final response =
-      await http.get(Uri.parse('http://127.0.0.1/miniBack/hs/mserv/employees'));
+  final response = await http.get(
+      Uri(path: 'http://192.168.1.108/miniBack/hs/mserv/employees'),
+      headers: {
+        "Accept": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      });
+  //.get(Uri.parse('https://jsonplaceholder.typicode.com/todos/1'));
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
