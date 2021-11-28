@@ -9,6 +9,13 @@ class User {
 
   User({required this.userId, required this.name, this.levelJob = "none"});
 
+  factory User.fromJson(Map<String, dynamic> json) {
+    return User(
+      userId: json['id'],
+      name: json['Name'],
+      //levelJob: json['level'],
+    );
+  }
   @override
   String toString() => "User $name";
 }
