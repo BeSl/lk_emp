@@ -9,22 +9,17 @@ import 'dart:async';
 import 'dart:convert';
 
 Future<User> getUser() async {
-  final response = await http.get(
-      Uri(path: 'http://192.168.1.108/miniBack/hs/mserv/employees'),
-      headers: {
-        "Accept": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      });
-  //.get(Uri.parse('https://jsonplaceholder.typicode.com/todos/1'));
+  final response = await http
+      //.get(Uri.parse('http://localhost/miniBack/hs/mserv/employees'), headers: {
+      .get(Uri.parse('http://localhost:3000/api/users/'), headers: {
+    "Accept": "application/json",
+    "Access-Control-Allow-Origin": "*",
+  });
 
   if (response.statusCode == 200) {
-    // If the server did return a 200 OK response,
-    // then parse the JSON.
     return User.fromJson(jsonDecode(response.body));
   } else {
-    // If the server did not return a 200 OK response,
-    // then throw an exception.
-    throw Exception('Failed to load album');
+    throw Exception('Failed to info user');
   }
 }
 
